@@ -1,70 +1,99 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>The Wikithon Project</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="icon" href="images/transparent.png">
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">
-    <style>
-        body {
-            background-color: #79bed1;
-            font-family: 'JetBrains Mono', monospace;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            height: 100vh;
-            margin: 0;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Wikithon Project</title>
+  <link rel="icon" href="images/transparent.png" />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #79cbe6;
+      font-family: 'JetBrains Mono', monospace;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
 
-        .logo-container {
-            width: 300px;
-        }
+    .logo-container {
+      width: 300px;
+      max-width: 90vw;
+      margin-bottom: 20px;
+    }
 
-        svg path,
-        svg polygon,
-        svg rect {
-            fill: none;
-            stroke: #ec845a;
-            stroke-width: 2;
-            stroke-dasharray: 1000;
-            stroke-dashoffset: 1000;
-            animation: draw 3s ease forwards;
-        }
+    svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
 
-        @keyframes draw {
-            to {
-                stroke-dashoffset: 0;
-            }
-        }
+    svg path,
+    svg polygon,
+    svg rect {
+      fill: none;
+      stroke: #ec845a;
+      stroke-width: 2;
+      stroke-dasharray: 1000;
+      stroke-dashoffset: 1000;
+      animation: draw 2.5s ease-out forwards;
+    }
 
-        .logo-text {
-            margin-top: 20px;
-            font-size: 2rem;
-            color: #ec845a;
-        }
-    </style>
+    @keyframes draw {
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+
+    .logo-text {
+      font-size: 2rem;
+      color: #ec845a;
+      text-align: center;
+    }
+
+    .navbar {
+      margin-top: 10px;
+      text-align: center;
+      color: white;
+      font-size: 1rem;
+    }
+
+    .navbar a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: white;
+      transition: color 0.3s;
+    }
+
+    .navbar a:hover {
+      color: #ec845a;
+    }
+  </style>
 </head>
 <body>
-    <div class="logo-container">
-        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-            viewBox="0 0 368.9 379.5" style="enable-background:new 0 0 368.9 379.5;" xml:space="preserve">
-            <g>
-                <path d="M282.6,18.4c-3.4-0.6-7.1,0.6-9.7,3.1L211.2,82l-46.2-8.7c-3.3-0.6-6.6,0.6-9,2.8c-2.4,2.3-3.6,5.6-3.2,8.9
-                    l1.8,13.7L71.1,203.3c-3.7,3.7-5.8,8.6-5.8,13.7c0,3.3,0.9,6.6,2.6,9.5l37.8,65.1c3.3,5.7,9.3,9.3,16,9.3c0.5,0,1,0,1.6-0.1
-                    c6.9-0.6,12.8-5,15.3-11.3l25.3-64.4l57.9,12.4c3.4,0.7,6.9-0.3,9.4-2.5l93.4-83.9c2.9-2.6,4.4-6.5,4.1-10.4
-                    c-0.3-3.9-2.3-7.4-5.5-9.7l-36.1-26.3l49.3-57.7c2.4-2.8,3.3-6.6,2.4-10.2C290.5,22.9,287,19.2,282.6,18.4z M128.4,288.1
-                    c-1,2.6-3.4,4.4-6.1,4.7c-2.7,0.2-5.4-1.2-6.7-3.7l-37.8-65.1c-1.4-2.4-1.5-5.4-0.2-7.8c0.4-0.8,0.9-1.6,1.6-2.2l81.8-80.5
-                    l8.7,65.6c0.3,2.5,1.6,4.7,3.5,6.3c1.6,1.4,3.6,2.2,5.7,2.2c0.6,0,1.2-0.1,1.8-0.2c3-0.7,5.4-2.9,6.3-5.8l24.8-73.3l68.1,49.6
-                    l-80.4,72.1l-60.1-12.9L128.4,288.1z M270.5,110.4l-74.6-54.3l70.1-66.7l19.4,3.7l-52.1,60.9c-2.5,3-2.3,7.4,0.4,10.2l46.5,46.4
-                    L270.5,110.4z"/>
-            </g>
-        </svg>
-        <div class="logo-text">Wikithon</div>
-    </div>
+  <div class="logo-container">
+    <svg viewBox="0 0 368.9 379.5" xmlns="http://www.w3.org/2000/svg">
+      <path d="M282.6,18.4c-3.4-0.6-7.1,0.6-9.7,3.1L211.2,82l-46.2-8.7c-3.3-0.6-6.6,0.6-9,2.8c-2.4,2.3-3.6,5.6-3.2,8.9
+                l1.8,13.7L71.1,203.3c-3.7,3.7-5.8,8.6-5.8,13.7c0,3.3,0.9,6.6,2.6,9.5l37.8,65.1c3.3,5.7,9.3,9.3,16,9.3c0.5,0,1,0,1.6-0.1
+                c6.9-0.6,12.8-5,15.3-11.3l25.3-64.4l57.9,12.4c3.4,0.7,6.9-0.3,9.4-2.5l93.4-83.9c2.9-2.6,4.4-6.5,4.1-10.4
+                c-0.3-3.9-2.3-7.4-5.5-9.7l-36.1-26.3l49.3-57.7c2.4-2.8,3.3-6.6,2.4-10.2C290.5,22.9,287,19.2,282.6,18.4z M128.4,288.1
+                c-1,2.6-3.4,4.4-6.1,4.7c-2.7,0.2-5.4-1.2-6.7-3.7l-37.8-65.1c-1.4-2.4-1.5-5.4-0.2-7.8c0.4-0.8,0.9-1.6,1.6-2.2l81.8-80.5
+                l8.7,65.6c0.3,2.5,1.6,4.7,3.5,6.3c1.6,1.4,3.6,2.2,5.7,2.2c0.6,0,1.2-0.1,1.8-0.2c3-0.7,5.4-2.9,6.3-5.8l24.8-73.3l68.1,49.6
+                l-80.4,72.1l-60.1-12.9L128.4,288.1z M270.5,110.4l-74.6-54.3l70.1-66.7l19.4,3.7l-52.1,60.9c-2.5,3-2.3,7.4,0.4,10.2l46.5,46.4
+                L270.5,110.4z" />
+    </svg>
+  </div>
 
-    <div id="navbar-placeholder"></div>
-    <script src="/navbar.js"></script>
+  <div class="logo-text">Wikithon</div>
+
+  <div class="navbar">
+    <a href="#">About Us</a>
+    <a href="#">Our Mission</a>
+    <a href="#">Get Involved</a>
+    <a href="#">Contact Us</a>
+  </div>
 </body>
 </html>
