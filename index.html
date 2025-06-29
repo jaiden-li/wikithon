@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The Wikithon Project</title>
-  <link rel="icon" href="images/transparent.png" />
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet" />
   <style>
     body {
@@ -17,28 +16,18 @@
       align-items: center;
       justify-content: center;
       height: 100vh;
-    }
-
-    .logo-container {
-      width: 300px;
-      max-width: 90vw;
-      margin-bottom: 20px;
+      text-align: center;
     }
 
     svg {
-      width: 100%;
+      width: 200px;
       height: auto;
-      display: block;
-    }
-
-    svg path,
-    svg line {
-      fill: none;
       stroke: #ec845a;
-      stroke-width: 2.5;
+      fill: none;
+      stroke-width: 2;
       stroke-dasharray: 1000;
       stroke-dashoffset: 1000;
-      animation: draw 2.5s ease-out forwards;
+      animation: draw 2s ease forwards;
     }
 
     @keyframes draw {
@@ -47,21 +36,19 @@
       }
     }
 
-    .logo-text {
-      font-size: 2rem;
+    h1 {
       color: #ec845a;
-      text-align: center;
+      font-size: 2rem;
+      margin-top: 1rem;
     }
 
     .navbar {
-      margin-top: 10px;
-      text-align: center;
-      color: white;
+      margin-top: 20px;
       font-size: 1rem;
     }
 
     .navbar a {
-      margin: 0 10px;
+      margin: 0 15px;
       text-decoration: none;
       color: white;
       transition: color 0.3s;
@@ -73,18 +60,15 @@
   </style>
 </head>
 <body>
-  <div class="logo-container">
-    <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
-      <path d="M10,90 L40,90 M40,90 L55,40 L75,65 L60,80 L40,90 Z" />
-      <path d="M55,40 L85,10" />
-      <path d="M85,10 L100,15" />
-      <path d="M100,15 L80,40" />
-      <path d="M80,40 L55,40" />
-      <line x1="10" y1="90" x2="30" y2="90" />
-    </svg>
-  </div>
 
-  <div class="logo-text">Wikithon</div>
+  <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <path d="M20 70 L40 60 L60 80 L55 85 L35 65 Z" />
+    <path d="M40 60 L70 30" />
+    <path d="M70 30 L80 35 L65 55" />
+    <line x1="20" y1="70" x2="10" y2="70" />
+  </svg>
+
+  <h1>Wikithon</h1>
 
   <div class="navbar">
     <a href="index.html">About Us</a>
@@ -92,5 +76,6 @@
     <a href="getinvolved.html">Get Involved</a>
     <a href="contact.html">Contact Us</a>
   </div>
+
 </body>
 </html>
