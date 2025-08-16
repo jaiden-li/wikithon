@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Me — The Wikithon Project</title>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet" />
+  <style>
+    :root{
+      --bg: #79cbe6;         /* site background */
+      --accent: #ec845a;     /* site accent (pencil orange) */
+      --ink: #0f2b3a;        /* deep blue ink for text */
+      --paper: #ffffff;      /* content surface */
+      --soft: #e7f5fb;       /* subtle panels */
+      --border: #dbeff7;     /* soft borders */
+      --link: #0b5d8a;       /* link base */
+      --link-hover: #ec845a; /* link hover follows accent */
+    }
+
+    /* Base */
+    html, body{ height:100%; }
+    body{
+      margin:0;
+      font-family:'JetBrains Mono', monospace;
+      background: var(--bg);
+      color: var(--ink);
+      display:flex;
+      flex-direction:column;
+    }
+
+    a{ color: var(--link); text-decoration:none; }
+    a:hover{ color: var(--link-hover); text-decoration: underline; }
+
+    /* Top bar (Wikipedia-like) */
+    .topbar{
+      position:sticky; top:0; z-index:20;
+      display:flex; align-items:center; gap:1rem;
+      padding: .6rem 1rem; 
+      background: var(--paper);
+      border-bottom: 2px solid var(--border);
+      box-shadow: 0 1px 0 rgba(0,0,0,.02);
+    }
+    .brand{ display:flex; align-items:center; gap:.6rem; }
+    .brand svg{ width:28px; height:auto; stroke: var(--accent); fill:none; }
+    .brand-title{ font-weight:700; color: var(--accent); letter-spacing:.5px; }
+
+    .top-links{ margin-left:auto; display:flex; gap:1rem; align-items:center; }
+
+    .search{
+      display:flex; align-items:center; gap:.5rem; 
+      border:1.5px solid var(--border);
+      background: var(--soft);
+      border-radius: 999px; padding:.35rem .6rem;
+    }
+    .search input{
+      border:none; outline:none; background:transparent; 
+      min-width: 14ch; font-family:inherit; color:var(--ink);
+    }
+
+    /* Page layout: left sidebar + content (Wikipedia Vector-ish) */
+    .wrap{ display:flex; gap:1rem; width: min(1200px, 100%); margin: 1rem auto; padding: 0 1rem; }
+
+    .sidebar{
+      width: 260px; flex:0 0 260px;
+      align-self:flex-start;
+      position:sticky; top:3.5rem;
+      background: var(--paper);
+      border:2px solid var(--border);
+      border-radius: 14px;
+      overflow:hidden;
+    }
+    .side-head{ font-weight:700; padding:.75rem 1rem; background: var(--soft); border-bottom:2px solid var(--border); }
+    .side-list{ list-style:none; margin:0; padding:.25rem 0; }
+    .side-list li{ padding:.4rem 1rem; }
+    .side-list li a{ display:block; }
+    .side-list li a.active{ color:var(--accent); font-weight:700; }
+
+    main{
+      flex:1; min-width:0;
+    }
+
+    .page-title{ 
+      display:flex; align-items:center; gap:.6rem; 
+      margin:.25rem 0 1rem 0; 
+    }
+    .page-title h1{ 
+      font-size: clamp(1.4rem, 2.2vw, 1.8rem); 
+      color: var(--accent); 
+      margin:0; 
+    }
+
+    .portal-grid{
+      display:grid; grid-template-columns: 1fr; gap:1rem;
+    }
+    @media (min-width: 900px){
+      .portal-grid{ grid-template-columns: 1.2fr .8fr; }
+    }
+
+    .box{
+      background: var(--paper);
+      border: 2px solid var(--border);
+      border-radius: 16px;
+      overflow:hidden;
+    }
+    .box-header{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:.75rem 1rem; background: var(--soft);
+      border-bottom:2px solid var(--border);
+      font-weight:700;
+    }
+    .box-body{ padding: 1rem 1rem 1.2rem; line-height: 1.6; }
+
+    .lead{
+      font-size: clamp(1rem, 1.6vw, 1.05rem);
+    }
+
+    .infobox{
+      background: var(--paper);
+      border:2px solid var(--border);
+      border-radius:16px;
+      padding: .75rem 1rem;
+    }
+    .infobox h3{ margin:.2rem 0 .6rem; font-size:1rem; color:var(--accent); }
+    .infobox ul{ margin:.25rem 0 0 1rem; }
+
+    footer{
+      margin: 1rem auto 2rem;
+      width:min(1200px, 100%);
+      padding: 0 1rem;
+      color: rgba(15,43,58,.75);
+      font-size:.9rem;
+    }
+
+    .badge{ display:inline-block; padding:.15rem .5rem; border-radius:999px; background: var(--soft); border:1.5px solid var(--border); font-size:.85em; }
+    .mono-dim{ color: rgba(15,43,58,.75); }
+  </style>
+</head>
+<body>
+  <header class="topbar" role="banner">
+    <div class="brand">
+      <svg viewBox="0 0 121.48 122.88" aria-hidden="true">
+        <path d="M96.84,2.22l22.42,22.42c2.96,2.96,2.96,7.8,0,10.76l-12.4,12.4L73.68,14.62l12.4-12.4C89.04-0.74,93.88-0.74,96.84,2.22z M70.18,52.19v.01c.92.92,1.38,2.14,1.38,3.34s-.46,2.41-1.38,3.34l-.01.01L40.09,88.99h-.01c-.26.26-.55.48-.84.67-.3.19-.61.34-.93.45-1.66.58-3.59.2-4.91-1.12v-.01c-.26-.26-.48-.55-.67-.84-.19-.3-.34-.61-.45-.93-.58-1.66-.2-3.59,1.11-4.91l30.09-30.09h.01c.92-.92,2.14-1.38,3.34-1.38s2.41.46,3.34,1.38z M45.48,109.11l-26.93,8.33C-2.55,123.97-2.46,128.32,3.3,108l9.07-32-.03-.03L67.4,20.9l33.18,33.18-55.07,55.07z M18.03,81.66l21.79,21.79-17.69,5.45c-13.86,4.27-13.8,7.13-10.03-6.22z" stroke-width="2" stroke="currentColor" fill="none"></path>
+      </svg>
+      <div class="brand-title">The Wikithon Project</div>
+      <span class="badge" aria-hidden="true">About</span>
+    </div>
+
+    <nav class="top-links" aria-label="Top links">
+      <a href="../index.html">Home</a>
+      <a href="mission.html">Our Mission</a>
+      <a href="getinvolved.html">Get Involved</a>
+      <a href="contact.html">Contact</a>
+      <div class="search" role="search">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <label for="site-search" class="mono-dim" style="position:absolute; left:-9999px">Search</label>
+        <input id="site-search" type="search" placeholder="Search Wikithon" aria-label="Search Wikithon" />
+      </div>
+    </nav>
+  </header>
+
+  <div class="wrap">
+    <aside class="sidebar" aria-label="Site navigation">
+      <div class="side-head">Navigation</div>
+      <ul class="side-list">
+        <li><a href="../index.html">Main page</a></li>
+        <li><a href="aboutus.html" class="active" aria-current="page">About Me</a></li>
+        <li><a href="mission.html">Our Mission</a></li>
+        <li><a href="getinvolved.html">Get Involved</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+      <div class="side-head">Quick links</div>
+      <ul class="side-list">
+        <li><a href="#about">About Wikithon</a></li>
+        <li><a href="#get-started">Get started</a></li>
+      </ul>
+    </aside>
+
+    <main role="main">
+      <div class="page-title">
+        <h1>About Me</h1>
+        <span class="mono-dim">(in the style of Wikipedia)</span>
+      </div>
+
+      <div class="portal-grid">
+        <section class="box" id="about">
+          <div class="box-header">Welcome to Wikithon</div>
+          <div class="box-body lead">
+            <p>
+Wikithon is a student-led organization dedicated to closing knowledge gaps on Wikipedia — especially for topics about women and historically underrepresented people and groups. We bring together students to edit exisiting pages that lack information, or add new ones. We believe that the world’s largest encyclopedia should reflect the full depth and diversity of human history, culture, and achievement.
+            </p>
+            <p class="mono-dim">
+              <em>Note:</em> This page intentionally borrows the layout patterns of Wikipedia (top bar, left navigation, portal-style boxes) while keeping Wikithon's typography and colors consistent.
+            </p>
+          </div>
+        </section>
+        
+  <footer>
+    <p>© <span id="y"></span> The Wikithon Project • Built with ♥ and JetBrains Mono • <span class="mono-dim">Wikipedia-style layout, custom Wikithon palette</span></p>
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
